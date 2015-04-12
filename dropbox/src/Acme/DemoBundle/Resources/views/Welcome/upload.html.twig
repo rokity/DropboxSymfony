@@ -1,0 +1,23 @@
+
+<html>
+<head>
+    <link href="/css/upload.css" rel="stylesheet" type="text/css">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $('form input').change(function () {
+                $('form p').text(this.files.length + " file(s) selected");
+            });
+        });
+
+    </script>
+
+</head>
+<body>
+<form enctype="multipart/form-data" action="/sendfile" method="POST">
+    <input name="userfile" type="file" >
+    <p>Drag your files here or click in this area.</p>
+    <button type="submit">Upload</button>
+</form>
+</body>
+</html>

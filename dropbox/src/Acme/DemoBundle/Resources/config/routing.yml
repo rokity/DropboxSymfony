@@ -1,0 +1,27 @@
+_welcome:
+    path:     /
+    defaults: { _controller: AcmeDemoBundle:Welcome:index }
+
+_demo_secured:
+    resource: "@AcmeDemoBundle/Controller/SecuredController.php"
+    type:     annotation
+
+_demo:
+    resource: "@AcmeDemoBundle/Controller/DemoController.php"
+    type:     annotation
+    prefix:   /demo
+_logged:
+    path:     /logged
+    defaults: { _controller: AcmeDemoBundle:Welcome:logged }
+_upload:
+    path:     /upload
+    defaults: { _controller: AcmeDemoBundle:Welcome:upload}
+_sendfile:
+    path:     /sendfile
+    defaults: { _controller: AcmeDemoBundle:Welcome:sendfile}
+_download:
+    path:     /download
+    defaults: { _controller: AcmeDemoBundle:Welcome:download}
+_list:
+   path: /list
+   defaults: { _controller: AcmeDemoBundle:Welcome:list}

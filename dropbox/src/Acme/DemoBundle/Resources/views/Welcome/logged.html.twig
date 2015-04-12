@@ -1,0 +1,50 @@
+<html>
+<head>
+    <link href="/css/log.css" rel="stylesheet" type="text/css">
+
+
+</head>
+
+<body >
+<a href="/upload" class="action-button shadow animate red">Upload</a>
+
+
+<table class="flat-table">
+    <tbody>
+    <tr id="traa">
+        <th>Name</th>
+        <th>Type</th>
+        <th>Last Change</th>
+        <th>Size</th>
+        <th>Download</th>
+    </tr>
+    {% for file in array %}
+    <tr>
+        <!-- IT'S A FILE -->
+        {% if file.is_dir == 0 %}
+        <td>{{ file.path }}</td>
+        <td>{{ file.mime_type }}</td>
+        <td>{{ file.modified }}</td>
+        <td>{{ file.size }}</td>
+        <td><a href="/download?name={{ file.path }}" class="btn btn-secondary">Download</a>
+
+        </td>
+        {% endif %}
+        <!-- IT'S A FOLDER -->
+        {% if file.is_dir == 1 %}
+        <td>{{ file.path }}</td>
+            <td></td>
+            <td></td>
+            <td>{{ file.size }}</td>
+            <td><a href="/list?name={{ file.path }}" class="btn btn-secondary">Open</a></td>
+        {% endif %}
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+
+
+</body>
+
+</html>
